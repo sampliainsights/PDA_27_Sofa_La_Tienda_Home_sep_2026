@@ -83,11 +83,10 @@ button,input{font:inherit;color:inherit}
 
 /* ---------- Main ---------- */
 main{margin-left:var(--side);padding:28px 32px 56px;max-width:calc(var(--side) + 1400px)}
-.hero{position:relative;overflow:hidden;background:linear-gradient(120deg,#d41739 0%,#e0253f 30%,#b51a03 100%);background-size:180% 180%;color:#fff;border-radius:6px;padding:22px 30px 18px;display:grid;grid-template-columns:1fr auto;gap:22px;align-items:center;animation:heroGradientShift 14s ease-in-out infinite alternate}
+.hero{position:relative;overflow:hidden;background:linear-gradient(120deg,#d41739 0%,#e0253f 30%,#b51a03 100%);color:#fff;border-radius:6px;padding:22px 30px 18px;display:grid;grid-template-columns:1fr auto;gap:22px;align-items:center}
 .hero::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.12),rgba(255,255,255,0) 40%,rgba(0,0,0,.08));pointer-events:none}
 .hero::after{content:'';position:absolute;right:-90px;bottom:-150px;width:300px;height:300px;border-radius:50%;background:var(--brick);opacity:.35;pointer-events:none}
 .hero>*{position:relative;z-index:1}
-@keyframes heroGradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:50% 100%}}
 .hero-kicker{font-family:var(--font-head);text-transform:uppercase;letter-spacing:.08em;font-weight:600;font-size:.8rem;opacity:.9;margin:0 0 6px}
 .hero h1{margin:0;font-family:var(--font-head);text-transform:uppercase;font-weight:800;font-size:clamp(1.6rem,2.8vw,2.5rem);line-height:1;letter-spacing:-.005em}
 .hero-sub{margin:6px 0 0;font-size:.86rem;opacity:.94}
