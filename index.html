@@ -83,9 +83,11 @@ button,input{font:inherit;color:inherit}
 
 /* ---------- Main ---------- */
 main{margin-left:var(--side);padding:28px 32px 56px;max-width:calc(var(--side) + 1400px)}
-.hero{position:relative;overflow:hidden;background:var(--rasp);color:#fff;border-radius:6px;padding:22px 30px 18px;display:grid;grid-template-columns:1fr auto;gap:22px;align-items:center}
+.hero{position:relative;overflow:hidden;background:linear-gradient(120deg,#d41739 0%,#e0253f 30%,#b51a03 100%);background-size:180% 180%;color:#fff;border-radius:6px;padding:22px 30px 18px;display:grid;grid-template-columns:1fr auto;gap:22px;align-items:center;animation:heroGradientShift 14s ease-in-out infinite alternate}
+.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.12),rgba(255,255,255,0) 40%,rgba(0,0,0,.08));pointer-events:none}
 .hero::after{content:'';position:absolute;right:-90px;bottom:-150px;width:300px;height:300px;border-radius:50%;background:var(--brick);opacity:.35;pointer-events:none}
 .hero>*{position:relative;z-index:1}
+@keyframes heroGradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:50% 100%}}
 .hero-kicker{font-family:var(--font-head);text-transform:uppercase;letter-spacing:.08em;font-weight:600;font-size:.8rem;opacity:.9;margin:0 0 6px}
 .hero h1{margin:0;font-family:var(--font-head);text-transform:uppercase;font-weight:800;font-size:clamp(1.6rem,2.8vw,2.5rem);line-height:1;letter-spacing:-.005em}
 .hero-sub{margin:6px 0 0;font-size:.86rem;opacity:.94}
@@ -97,6 +99,8 @@ main{margin-left:var(--side);padding:28px 32px 56px;max-width:calc(var(--side) +
 .seal{width:140px;height:140px;flex:none}
 .hero-logo[hidden]{display:none}
 .hero-logo{display:block;height:150px;width:auto;border:3px solid #fff;border-radius:6px;box-shadow:0 6px 18px rgba(0,0,0,.18)}
+.hero-side{display:flex;align-items:center;justify-content:flex-end;gap:12px}
+.hero-badge{display:inline-flex;align-items:center;justify-content:center;padding:10px 14px;border:2px solid rgba(255,255,255,.9);border-radius:8px;background:rgba(255,255,255,.08);box-shadow:0 6px 18px rgba(0,0,0,.15);font-family:var(--font-head);text-transform:uppercase;letter-spacing:.12em;font-size:.72rem;font-weight:800;line-height:1.2;color:#fff;white-space:nowrap}
 .seal svg{width:100%;height:100%;display:block}
 .seal text{font-family:var(--font-head)}
 @media (prefers-reduced-motion:no-preference){
@@ -392,7 +396,9 @@ body.pdf-mode *{animation:none !important;transition:none !important}
           <div><dt>Comprarían el producto</dt><dd id="factBuy">–</dd></div>
         </dl>
       </div>
-      <img class="hero-logo" id="heroLogo" alt="" hidden>
+      <div class="hero-side">
+        <img class="hero-logo" id="heroLogo" src="LOGO--PDA-2027.jpg" alt="LOGO--PDA 207">
+      </div>
     </div>
     <div class="active-filter" id="activeFilter" aria-live="polite"></div>
   </div>
@@ -596,7 +602,7 @@ Las patas me parecen muy finas y ya hay una que estaba un poco doblada, al igual
 /* ================= CONFIG ================= */
 const CONFIG = {
   campaign: 'Sofá La Tienda Home',
-  heroImage: '', // URL o data URI de la foto del producto; vacío = sin imagen
+  heroImage: 'LOGO--PDA-2027.jpg', // URL o data URI de la foto del producto; vacío = sin imagen
   pdfName: 'Samplia_Insights_LaTiendaHome_Sofa_Barcelona.pdf',
   sources: (() => {
     const id = '1p0q943hiX-eSSoqisv8AV83LBNuvVxvcI8HqLep9Um4';
